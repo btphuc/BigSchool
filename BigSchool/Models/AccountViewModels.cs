@@ -64,6 +64,12 @@ namespace BigSchool.Models
 
     public class RegisterViewModel
     {
+
+        [Required]
+        [StringLength(255)]
+        [Display(Name = "Tên Người Dùng")]
+        public string Name { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
