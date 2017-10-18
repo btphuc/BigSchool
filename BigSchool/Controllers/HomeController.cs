@@ -20,7 +20,7 @@ namespace BigSchool.Controllers
         public ActionResult Index()
         {
 
-            var upcommingCourses = _dbContext.Courses.Include("Lecturer").Include("Category").Where(c => c.DateTime > DateTime.Now);
+            var upcommingCourses = _dbContext.Courses.Include("Lecturer").Include("Category").Where(c => c.DateTime > DateTime.Now).OrderBy(m=>m.DateTime);
 
             return View(upcommingCourses);
         }

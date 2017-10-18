@@ -7,18 +7,47 @@
 
 
 <div class="row" style="margin-top: 50px;">
-    <ul>
         @foreach(var item in Model)
         {
-           <div class="col-md-3" style="margin-top: 50px;">
-               <div class="text-center">
-                   <h4>@item.Lecturer.Name</h4>
-                   <p>Địa Điểm : <strong>@item.Place</strong></p>
-                   <p>Ngày : <strong>@item.DateTime.ToString("dd/MM")</strong></p>
-                   <p>Vao luc : <strong>@item.DateTime.ToString("HH:MM")</strong></p>
-                   <p>@item.Category.Name</p>
+           <div class="col-md-3 m-auto" 
+                style=" margin-top: 50px; 
+                        border: solid 1px #516ca4; 
+                        border-radius:5px ; 
+                        background-color : #516ca4 ; 
+                        color:white ; 
+                        margin: 20px 50px 20px 20px ;
+                        flex:1">
+               <div class="row text-center">
+                   <h3 style="font-weight:bold" class="m-auto">@item.Lecturer.Name</h3>
+               </div>
+               <div class="row">
+                   <div class="col-md-3"></div>
+                   <div class="col-md-3 text-center">
+                       <h4 font-weight:bold">Ngày</h4>
+                   </div>
+                   <div class="col-md-3 text-center">
+                       <h4 font-weight:bold">Tháng</h4>
+                   </div>
+                   <div class="col-md-3"></div>
+               </div>
+               <div class="row">
+                   <div class="col-md-3"></div>
+                   <div class="col-md-3 text-center">
+                       <h4 font-weight:bold">@item.DateTime.ToString("dd")</h4>
+                   </div>
+                   <div class="col-md-3 text-center">
+                       <h4 font-weight:bold">@item.DateTime.ToString("MM")</h4>
+                   </div>
+                   <div class="col-md-3"></div>
+               </div>
+               <div class="row">
+                   <div class="col-md-2"></div>
+                   <div class="col-md-8" style="margin:auto">
+                       <p>Chủ Đề : <strong>@item.Category.Name</strong></p>
+                       <p>Địa điểm : <strong>@item.Place</strong></p>
+                   </div>
+                   <div class="col-md-2"></div>
                </div>
            </div>
         }
-    </ul>
 </div>

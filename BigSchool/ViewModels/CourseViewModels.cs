@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 
@@ -30,7 +31,14 @@ namespace BigSchool.ViewModels
 
         public DateTime GetDateTime()
         {
-            return DateTime.Parse(String.Format("{0} {1}", Date, Time));
+            DateTime dateTime;
+            DateTime.TryParseExact(Convert.ToString(Date),
+                "dd/M/yyyy",
+                 CultureInfo.CurrentCulture,
+                 DateTimeStyles.None,
+                 out dateTime
+                );
+            return DateTime.Parse(String.Format("{0} {1}", dateTime.ToShortDateString(), Time));
         }
     }
 }
